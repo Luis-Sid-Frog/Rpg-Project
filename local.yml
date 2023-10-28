@@ -33,6 +33,8 @@ services:
       - rpg_project_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
+    ports:
+      - '5432:5432'
 
   docs:
     image: rpg_project_local_docs
