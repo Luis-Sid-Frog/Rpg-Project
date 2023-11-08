@@ -1,0 +1,6 @@
+- model: rpg_app.gamesystem
+  pk: 1
+  fields:
+    name: Jedyny pierścień
+    description: xyz
+    image: 903b83e193906cf63af3ea762856d5128b74b0cb_full_UVqLLdI.jpg
