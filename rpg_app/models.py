@@ -18,9 +18,9 @@ class GameScenerio(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
     image = models.ImageField()
-    # characters
-    # maps
-    # locations
+    characters = models.TextField(default=False)
+    maps = models.ImageField(default=False)
+    locations = models.TextField(default=False)
     notes = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -36,4 +36,4 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.body[:50]
+        return f'{self.comment_body[:50]}...'
