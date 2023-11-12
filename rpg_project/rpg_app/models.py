@@ -18,9 +18,9 @@ class GameScenerio(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
     image = models.ImageField()
-    # characters
-    # maps
-    # locations
+    characters = models.TextField(default=None)
+    maps = models.ImageField(default=None, null=True)
+    locations = models.ImageField(default=None, null=True)
     notes = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
