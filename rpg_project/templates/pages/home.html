@@ -1,3 +1,25 @@
 {% extends "base.html" %}
 
+{% block content %}
+
+  <h1>Home Template</h1>
+
+
+  <div>
+      <div>
+
+          {% for game_scenerio in game_scenerios %}
+            <div>
+            <span>${{ game_scenerio.author }}</span>
+              <h5>{{ game_scenerio.title }}</h5>
+            </div>
+          {% endfor %}
+
+      </div>
+
+  </div>
+
+{% endblock %}
+
+
 
