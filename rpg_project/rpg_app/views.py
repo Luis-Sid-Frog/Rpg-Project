@@ -19,6 +19,9 @@ def user_profile(request):
     pass
 
 
+def game_system_page(request):
+    return render(request, 'pages/gameSystem.html')
+
 def scenerio_page(request):
     pass
 
