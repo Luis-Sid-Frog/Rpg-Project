@@ -8,4 +8,3 @@ class GameSystemAdmin(admin.ModelAdmin):
 admin.site.register(GameSystem)
 admin.site.register(GameScenerio)
 admin.site.register(Comment)
-
