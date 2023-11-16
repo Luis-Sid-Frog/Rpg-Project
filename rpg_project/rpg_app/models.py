@@ -36,4 +36,4 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.comment_body[:50]
+        return f'{self.comment_body[:50]}...'
