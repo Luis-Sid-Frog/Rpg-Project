@@ -1,8 +1,9 @@
 from django.urls import path
-from . import views
+from .views import pages, crud
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('gamescenerio/<str:pk>/', views.game_system_page, name='game_scenerio'),
+    path('', pages.home, name='home'),
+    path('gamescenerio/<str:pk>/', pages.game_scenerio_page, name='game_scenerio'),
+    path('createscenerio/', crud.create_scenerio, name='create-scenerio'),
 ]

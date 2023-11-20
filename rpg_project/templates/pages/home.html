@@ -2,22 +2,40 @@
 
 {% block content %}
 
-  <h1>Home Template</h1>
-
-
-  <div>
+<div class="container text-center">
+  <div class="row align-items-center">
+    <div class="col-3">
       <div>
-
+          {%  for game_system in game_systems %}
+            <div class="game_system_class">
+            <h5>{{ game_system.name }}</h5>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+    <div class="col-6">
+      <div>
+          <a href="{% url 'create-scenerio' %}">Create Your Scenario</a>
           {% for game_scenerio in game_scenerios %}
             <div>
             <span>${{ game_scenerio.author }}</span>
-              <h5>{{ game_scenerio.title }}</h5>
+              <a href="{% url 'game_scenerio' game_scenerio.id %}"><h5>{{ game_scenerio.title }}</h5></a>
             </div>
           {% endfor %}
-
       </div>
-
+    </div>
+    <div class="col-3">
+      <div>
+          {% for comment in comments %}
+            <span>@{{comment.author }}</span><br>
+            <span>-{{ comment.game_scenerio }}</span>
+            <h5>{{ comment.comment_body }}</h5>
+          {%  endfor %}
+      </div>
+    </div>
   </div>
+</div>
+
 
 {% endblock %}
 
