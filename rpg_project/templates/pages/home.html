@@ -18,7 +18,10 @@
           <a href="{% url 'create-scenerio' %}">Create Your Scenario</a>
           {% for game_scenerio in game_scenerios %}
             <div>
-            <span>${{ game_scenerio.author }}</span>
+            <hr>
+              <a href="{% url 'update-scenerio' game_scenerio.id %}">Edit</a>
+              <a href="{% url 'delete-scenerio' game_scenerio.id %}">Delete</a>
+              <span>${{ game_scenerio.author }}</span>
               <a href="{% url 'game_scenerio' game_scenerio.id %}"><h5>{{ game_scenerio.title }}</h5></a>
             </div>
           {% endfor %}
