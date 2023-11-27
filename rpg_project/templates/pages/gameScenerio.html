@@ -2,10 +2,32 @@
 
 {% block content %}
 
-<h1>Game scenerio room</h1>
   <br>
-  <p>{{ game_scenerio.game_system }}</p>
+  <h1>{{ game_scenerio.game_system }}</h1>
   <h3>{{ game_scenerio.title }}</h3>
   <p>{{ game_scenerio.body }}</p>
+  <hr>
+
+  <div class="comment-bar">
+    <form method="POST" action="">
+      {% csrf_token %}
+      <input type="text" name="comment_body" placeholder="Add comment...">
+    </form>
+  </div>
+  <hr>
+
+  <div class="comment-wrapper">
+    <h3>Comments</h3>
+    <hr>
+    {%  for comment in comments %}
+      <div>
+        <small>@{{ comment.author }} {{ comment.created }}</small>
+        <p>{{ comment.comment_body }}</p>
+        <hr>
+      </div>
+    {% endfor %}
+  </div>
+
+
 
 {% endblock %}

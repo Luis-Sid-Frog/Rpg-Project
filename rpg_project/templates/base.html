@@ -101,6 +101,13 @@
         </div>
       </div>
     </nav>
+
+  <div class="search_bar">
+    <form method="GET" action="{%  url 'home' %}">
+      <input type="text" name="q" placeholder="Search system...">
+    </form>
+  </div>
+
   </div>
   <div class="container">
     {% if messages %}
@@ -119,6 +126,9 @@
     {% endblock content %}
   </div>
   <!-- /container -->
+  {% block footer %}
+    <p>To jest domyślna treść</p>
+  {% endblock footer %}
   {% block modal %}
   {% endblock modal %}
   {% block inline_javascript %}
