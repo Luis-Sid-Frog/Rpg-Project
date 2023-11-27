@@ -6,9 +6,12 @@
   <div class="row align-items-center">
     <div class="col-3">
       <div>
+          <div>
+            <a href="{%  url 'home' %}">All</a>
+          </div>
           {%  for game_system in game_systems %}
             <div class="game_system_class">
-            <h5>{{ game_system.name }}</h5>
+            <a href="{%  url 'home' %}?q={{game_system.name}}">{{game_system.name}}</a>
             </div>
           {% endfor %}
         </div>
