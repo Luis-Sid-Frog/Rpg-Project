@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from rpg_project.rpg_app.models import GameSystem, GameScenerio, Comment
-
+from django. contrib import messages
 
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
@@ -23,5 +23,6 @@ def game_scenerio_page(request, pk):
             comment_body= request.POST.get('comment_body'),
         )
         return redirect('game_scenerio', pk=game_scenerio.id)
+
     context = {'game_scenerio': game_scenerio, 'comments': comments}
     return render(request, 'pages/gameScenerio.html', context)
