@@ -8,5 +8,6 @@ urlpatterns = [
     path('createscenerio/', crud.create_scenerio, name='create-scenerio'),
     path('updatecenerio/<str:pk>/', crud.update_game_scenerio, name='update-scenerio'),
     path('deletecenerio/<str:pk>/', crud.delete_game_scenerio, name='delete-scenerio'),
+    path('gamesystem/<str:pk>/', pages.game_system_page, name='game-system-page'),
 
 ]
