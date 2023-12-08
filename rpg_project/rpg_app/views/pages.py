@@ -26,3 +26,13 @@ def game_scenerio_page(request, pk):
 
     context = {'game_scenerio': game_scenerio, 'comments': comments}
     return render(request, 'pages/gameScenerio.html', context)
+
+
+def game_system_page(request, pk):
+    game_system = GameSystem.objects.get(id=pk)
+    game_scenarios = GameScenerio.objects.all().order_by('-created')
+
+    context = {'game_system': game_system, 'game_scenarios': game_scenarios}
+    return render(request, 'pages/gameSystem.html', context)
+
+

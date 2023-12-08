@@ -1,3 +1,16 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ game_system.name }}</h1>
+  <p>{{ game_system.description }}</p>
+
+<div>
+  {%  for game_scenerio in game_scenarios %}
+    <hr>
+    <a href="{% url 'game_scenerio' game_scenerio.id %}"><h5>{{ game_scenerio.title }}</h5></a>
+  {% endfor %}
+</div>
 
 
-<h1>Game system room</h1>
+{%  endblock %}

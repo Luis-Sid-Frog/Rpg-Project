@@ -3,7 +3,7 @@
 {% block content %}
 
   <br>
-  <h1>{{ game_scenerio.game_system }}</h1>
+  <a href="{%  url 'game-system-page' game_scenerio.game_system.id %}"><h1>{{ game_scenerio.game_system }}</h1></a>
   <h3>{{ game_scenerio.title }}</h3>
   <p>{{ game_scenerio.body }}</p>
   <hr>
