@@ -6,7 +6,7 @@ def create_scenerio(request):
     form = GameScenerioForm()
     if request.method == "POST":
         form = GameScenerioForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             return redirect('home')
         else:
