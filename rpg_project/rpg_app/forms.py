@@ -6,4 +6,3 @@ class GameScenerioForm(ModelForm):
     class Meta:
         model = GameScenerio
         fields = '__all__'
-        exclude = ('image',)

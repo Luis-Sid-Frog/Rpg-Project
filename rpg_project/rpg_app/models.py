@@ -17,7 +17,7 @@ class GameScenerio(models.Model):
     game_system = models.ForeignKey(GameSystem, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     body = models.TextField(null=True, blank=True)
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
     characters = models.TextField(null=True, blank=True)
     maps = models.ImageField(null=True, blank=True)
     locations = models.ImageField(null=True, blank=True)
