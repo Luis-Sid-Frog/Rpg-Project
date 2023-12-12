@@ -18,6 +18,7 @@ class User(AbstractUser):
     first_name = None  # type: ignore
     last_name = None  # type: ignore
     email = EmailField(_("email address"), unique=True)
+    bio = CharField(blank=True)
     username = None  # type: ignore
 
     USERNAME_FIELD = "email"
