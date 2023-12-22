@@ -60,3 +60,7 @@ INSTALLED_APPS += ["django_extensions"]  # noqa: F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '60fd822b06d319'
+EMAIL_HOST_PASSWORD = '34f459b6785729'
+EMAIL_PORT = '2525'
