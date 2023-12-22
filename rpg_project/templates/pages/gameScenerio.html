@@ -1,32 +1,36 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
   <br>
-  <a href="{%  url 'game-system-page' game_scenerio.game_system.id %}"><h1>{{ game_scenerio.game_system }}</h1></a>
+  <a href="{% url 'game-system-page' game_scenerio.game_system.id %}"><h1>{{ game_scenerio.game_system }}</h1></a>
   <h3>{{ game_scenerio.title }}</h3>
   <p>{{ game_scenerio.body }}</p>
   <hr>
 
   <div class="comment-bar">
-    <form method="POST" action="">
-      {% csrf_token %}
-      <input type="text" name="comment_body" placeholder="Add comment...">
-    </form>
+    {% if user.is_authenticated %}
+      <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="comment_body" placeholder="Add comment...">
+      </form>
+    {% else %}
+      <p>Musisz się <a href="{% url 'account_login' %}">zalogować</a></p>
+    {% endif %}
   </div>
   <hr>
 
   <div class="comment-wrapper">
     <h3>Comments</h3>
     <hr>
-    {%  for comment in comments %}
-        {%  if comment.game_scenerio == game_scenerio %}
-      <div>
-        <small>@{{ comment.author }} {{ comment.created }}</small>
-        <p>{{ comment.comment_body }}</p>
-        <hr>
-      </div>
-        {%  endif %}
+    {% for comment in comments %}
+      {% if comment.game_scenerio == game_scenerio %}
+        <div>
+          <small>@{{ comment.author }} {{ comment.created }}</small>
+          <p>{{ comment.comment_body }}</p>
+          <hr>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 

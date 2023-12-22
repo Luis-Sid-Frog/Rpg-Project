@@ -16,7 +16,7 @@ def game_scenerio_page(request, pk):
     game_scenerio = GameScenerio.objects.get(id=pk)
     comments = Comment.objects.all().order_by('-created')
 
-    if request.method =='POST':
+    if request.method =='POST' and request.user.is_authenticated:
         comment = Comment.objects.create(
             author = request.user,
             game_scenerio = game_scenerio,
