@@ -28,6 +28,9 @@ class GameScenerio(models.Model):
     def __str__(self):
         return self.title
 
+    def is_author(self, user):
+        return self.author == user
+
 
 class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
