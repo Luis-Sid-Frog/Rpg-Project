@@ -16,11 +16,7 @@ class GameScenerio(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     game_system = models.ForeignKey(GameSystem, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    body = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    characters = models.TextField(null=True, blank=True)
-    maps = models.ImageField(null=True, blank=True)
-    locations = models.ImageField(null=True, blank=True)
     notes = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -30,6 +26,15 @@ class GameScenerio(models.Model):
 
     def is_author(self, user):
         return self.author == user
+
+
+class Chapter(models.Model):
+    game_scenario = models.ForeignKey(GameScenerio, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    body = models.TextField(null=True, blank=True)
+    notes = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
 
 class Comment(models.Model):
