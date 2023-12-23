@@ -25,7 +25,7 @@ def game_scenerio_page(request, pk):
         return redirect('game_scenerio', pk=game_scenerio.id)
 
     context = {'game_scenerio': game_scenerio, 'comments': comments}
-    return render(request, 'pages/gameScenerio.html', context)
+    return render(request, 'pages/../../templates/game_scenario/game_scenario.html', context)
 
 
 def game_system_page(request, pk):
