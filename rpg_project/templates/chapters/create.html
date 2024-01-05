@@ -2,6 +2,13 @@
 
 {% block right_content %}
 
-Dodawanie chaptera
+<div>
+    {% load crispy_forms_tags %}
+    <form method="POST" action="">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Submit"/>
+    </form>
+</div>
 
 {%  endblock %}

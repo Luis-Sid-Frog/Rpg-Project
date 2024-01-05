@@ -33,6 +33,6 @@ def game_system_page(request, pk):
     game_scenarios = GameScenerio.objects.all().order_by('-created')
 
     context = {'game_system': game_system, 'game_scenarios': game_scenarios}
-    return render(request, 'pages/gameSystem.html', context)
+    return render(request, 'pages/game_system.html', context)
 
 

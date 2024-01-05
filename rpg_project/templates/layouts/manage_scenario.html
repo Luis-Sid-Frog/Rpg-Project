@@ -20,8 +20,8 @@
                     <a href="{% url 'chapters_create' game_scenario_id=game_scenario.id %}">Dodaj<i
                       class="bi bi-calendar-plus"></i></a>
                   {% endif %}
-                  {%  for chapter in chapters %}
-
+                  {% for chapter in chapters %}
+                    {{ chapter.title }}
                   {% endfor %}
                   This is the first item's accordion body.</strong>
               </div>
