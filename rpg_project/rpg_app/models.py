@@ -29,12 +29,15 @@ class GameScenerio(models.Model):
 
 
 class Chapter(models.Model):
-    game_scenario = models.ForeignKey(GameScenerio, on_delete=models.CASCADE)
+    game_scenario = models.ForeignKey(GameScenerio, on_delete=models.CASCADE, null= True)
     title = models.CharField(max_length=200)
     body = models.TextField(null=True, blank=True)
     notes = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Comment(models.Model):
