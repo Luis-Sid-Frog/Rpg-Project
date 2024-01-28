@@ -15,15 +15,17 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <strong>
                   {% if game_scenario %}
                     <a href="{% url 'chapters_create' game_scenario_id=game_scenario.id %}">Dodaj<i
                       class="bi bi-calendar-plus"></i></a>
                   {% endif %}
+                  <ul>
                   {% for chapter in chapters %}
-                    {{ chapter.title }}
+                    <li>
+                      <a href="{% url 'chapters_update' game_scenario_id=game_scenario.id chapter_id=chapter.id %}">{{ chapter.title }}</a>
+                    </li>
                   {% endfor %}
-                  This is the first item's accordion body.</strong>
+                  </ul>
               </div>
             </div>
           </div>

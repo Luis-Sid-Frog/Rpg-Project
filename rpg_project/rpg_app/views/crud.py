@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
-from rpg_project.rpg_app.models import GameSystem, GameScenerio, Comment
+from rpg_project.rpg_app.models import GameSystem, GameScenerio, Chapter, Comment
 from rpg_app.forms import GameScenerioForm
 
 def create_scenerio(request):
@@ -24,13 +24,15 @@ def update_game_scenerio(request, pk):
     if not game_scenario.is_author(request.user):
         raise PermissionDenied()
 
+    chapters = Chapter.objects.filter(game_scenario_id=pk)
+
     form = GameScenerioForm(instance=game_scenario)
     if request.method == "POST":
         form = GameScenerioForm(request.POST, instance=game_scenario)
         if form.is_valid:
             form.save()
             return redirect('home')
-    context = {'form': form, 'game_scenario': game_scenario}
+    context = {'form': form, 'game_scenario': game_scenario, 'chapters':chapters}
     return render(request, 'game_scenario/scenario_form.html', context)
 
 
