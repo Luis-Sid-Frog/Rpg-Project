@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from rpg_project.rpg_app.models import GameScenerio, Chapter
+from rpg_project.rpg_app.models import GameScenerio, Chapter, Character
 
 
 class GameScenerioForm(ModelForm):
@@ -12,4 +12,10 @@ class GameScenerioForm(ModelForm):
 class ChapterForm(ModelForm):
     class Meta:
         model = Chapter
+        fields = '__all__'
+
+
+class CharacterForm(ModelForm):
+    class Meta:
+        model = Character
         fields = '__all__'
