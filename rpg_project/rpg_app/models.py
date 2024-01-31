@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from django_quill.fields import QuillField
 
 # Create your models here.
 class GameSystem(models.Model):
@@ -31,7 +31,7 @@ class GameScenerio(models.Model):
 class Chapter(models.Model):
     game_scenario = models.ForeignKey(GameScenerio, on_delete=models.CASCADE, null= True)
     title = models.CharField(max_length=200)
-    body = models.TextField(null=True, blank=True)
+    body = QuillField()
     notes = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -48,3 +48,14 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.comment_body[:50]}...'
+
+
+class Character(models.Model):
+    name = models.CharField(max_length=100)
+    race = models.CharField(max_length=100)
+    info = QuillField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
