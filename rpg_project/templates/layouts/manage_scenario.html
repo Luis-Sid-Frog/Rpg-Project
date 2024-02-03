@@ -43,7 +43,15 @@
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong>
+                  {% if game_scenario %}
+                    <a href="{% url 'character_create' game_scenario_id=game_scenario.id %}">Dodaj<i
+                      class="bi bi-calendar-plus"></i></a>
+                  {% endif %}
+                {% for character in characters %}
+                    <li>
+                      <a href="{% url 'characters_update' game_scenario_id=game_scenario.id character_id=character.id %}">{{ character.name }}</a>
+                    </li>
+                {% endfor %}
               </div>
             </div>
           </div>
