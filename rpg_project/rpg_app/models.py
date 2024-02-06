@@ -51,6 +51,7 @@ class Comment(models.Model):
 
 
 class Character(models.Model):
+    game_scenario = models.ForeignKey(GameScenerio, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100)
     race = models.CharField(max_length=100)
     info = QuillField()
