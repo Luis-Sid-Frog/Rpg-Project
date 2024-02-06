@@ -4,7 +4,6 @@ from rpg_project.rpg_app.models import Character, GameScenerio
 from rpg_project.rpg_app.forms import CharacterForm
 
 
-
 def create(request, game_scenario_id):
     characters = Character.objects.all()
     game_scenario = GameScenerio.objects.get(id=game_scenario_id)
@@ -15,11 +14,11 @@ def create(request, game_scenario_id):
             form.save()
             return redirect('update-scenerio', pk=game_scenario_id)
     context = {'form': form, 'characters': characters, 'game_scenario': game_scenario}
-    return render(request, 'chapters/create.html', context)
+    return render(request, 'characters/create.html', context)
 
 
-def update(request, game_scenario_id, chapter_id):
-    character = Character.objects.get(id=chapter_id)
+def update(request, game_scenario_id, character_id):
+    character = Character.objects.get(id=character_id)
     characters = Character.objects.filter(game_scenario_id=game_scenario_id)
     form = CharacterForm(instance=character)
     game_scenario = GameScenerio.objects.get(id=game_scenario_id)

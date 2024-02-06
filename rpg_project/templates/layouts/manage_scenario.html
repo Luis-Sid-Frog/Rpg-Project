@@ -2,7 +2,7 @@
 
 {% block scripts %}
   {{ form.media }}
-  xyzxyz
+
 {% endblock scripts %}
 
 {% block content %}
@@ -47,11 +47,13 @@
                     <a href="{% url 'character_create' game_scenario_id=game_scenario.id %}">Dodaj<i
                       class="bi bi-calendar-plus"></i></a>
                   {% endif %}
+              <ul>
                 {% for character in characters %}
                     <li>
-                      <a href="{% url 'characters_update' game_scenario_id=game_scenario.id character_id=character.id %}">{{ character.name }}</a>
+                      <a href="{% url 'character_update' game_scenario_id=game_scenario.id character_id=character.id %}">{{ character.name }}</a>
                     </li>
                 {% endfor %}
+              </ul>
               </div>
             </div>
           </div>

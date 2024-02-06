@@ -4,7 +4,6 @@ from rpg_project.rpg_app.models import Chapter, GameScenerio
 from rpg_project.rpg_app.forms import ChapterForm
 
 
-
 def create(request, game_scenario_id):
     chapters = Chapter.objects.all()
     game_scenario = GameScenerio.objects.get(id=game_scenario_id)
@@ -33,4 +32,3 @@ def update(request, game_scenario_id, chapter_id):
             return redirect('update-scenerio', pk=game_scenario_id)
     context = {'form': form, 'chapter': chapter, 'chapters': chapters, 'game_scenario': game_scenario}
     return render(request, 'chapters/create.html', context)
-
