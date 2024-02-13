@@ -5,7 +5,7 @@ from rpg_project.rpg_app.forms import ChapterForm
 
 
 def create(request, game_scenario_id):
-    chapters = Chapter.objects.all()
+    chapters = Chapter.objects.filter(game_scenario_id=game_scenario_id)
     game_scenario = GameScenerio.objects.get(id=game_scenario_id)
     form = ChapterForm()
     if request.method == 'POST':

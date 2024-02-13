@@ -2,8 +2,11 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
+from django.shortcuts import render, redirect
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
+from rpg_project.rpg_app.models import GameScenerio
+
 
 User = get_user_model()
 
@@ -12,6 +15,12 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
     slug_field = "id"
     slug_url_kwarg = "id"
+
+    def user_profile(self):
+        game_scenarios = GameScenerio.objects.filter(author=self.object)
+
+        context = {'game_scenarios':game_scenarios}
+        return render('users/user_detail.html', context)
 
 
 user_detail_view = UserDetailView.as_view()
