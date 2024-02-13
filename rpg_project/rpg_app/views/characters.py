@@ -5,7 +5,7 @@ from rpg_project.rpg_app.forms import CharacterForm
 
 
 def create(request, game_scenario_id):
-    characters = Character.objects.all()
+    characters = Character.objects.filter(game_scenario_id=game_scenario_id)
     game_scenario = GameScenerio.objects.get(id=game_scenario_id)
     form = CharacterForm()
     if request.method == 'POST':
