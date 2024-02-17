@@ -32,9 +32,18 @@
         <p>{{ user.bio }}</p>
 
 
-        {% for game_scenario in game_scenarios %}
-          {{ game_scenario.title }}xxx
-        {% endfor %}
+        <h2>Scenarios created by {{ user.name }}</h2>
+<ul>
+  {% for scenario in user_scenarios %}
+    <li>
+      <h3><a href="{% url 'users:detail' id=user.id %}">{{ scenario.title }}</a></h3>
+      <p>Author: {{ scenario.author }}</p>
+      <p><a href="{% url 'update-scenerio' pk=scenario.id %}">Update Scenario</a></p>
+      <!-- Dodaj inne informacje o scenariuszu, które chcesz wyświetlić -->
+    </li>
+  {% endfor %}
+</ul>
+
 
 
         <!-- Your Stuff: Custom user template urls -->

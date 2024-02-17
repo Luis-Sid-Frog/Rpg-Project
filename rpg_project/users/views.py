@@ -7,7 +7,6 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
 from rpg_project.rpg_app.models import GameScenerio
 
-
 User = get_user_model()
 
 
@@ -15,13 +14,15 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
     slug_field = "id"
     slug_url_kwarg = "id"
+    template_name = "users/user_detail.html"
 
-    def user_profile(self):
-        game_scenarios = GameScenerio.objects.filter(author=self.object)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_id = self.object.id
+        user_scenarios = GameScenerio.objects.filter(author_id=user_id)
 
-        context = {'game_scenarios':game_scenarios}
-        return render('users/user_detail.html', context)
-
+        context['user_scenarios'] = user_scenarios
+        return context
 
 user_detail_view = UserDetailView.as_view()
 
