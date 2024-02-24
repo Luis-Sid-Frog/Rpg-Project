@@ -12,6 +12,134 @@
   border-color: #eed3d7;
 }
 
+.search_bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Dostosuj margines górnego dla wyższego odstępu od nawigacji */
+}
+
+.search_bar form {
+  display: flex;
+  align-items: center;
+}
+
+.search_bar input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Zaokrąglone rogi */
+}
+
+.search_bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: -35px; /* Dostosuj odstęp, aby ikona była wyśrodkowana z polem tekstowym */
+}
+
+.search_bar button img {
+  width: 20px; /* Dostosuj rozmiar ikony */
+}
+
+/* Dla estetyki, dodaj animację do zaokrąglania rogów */
+.search_bar input,
+.search_bar button {
+  transition: border-radius 0.3s;
+}
+
+.search_bar input:hover,
+.search_bar button:hover {
+  border-radius: 20px; /* Zmiana zaokrąglonych rogów po najechaniu myszką */
+}
+
+.row {
+  width: 100%;
+  margin-left: 1px;
+}
 .game_systems_list {
   text-align: left;
+}
+.rounded-box {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer; /* Dodajemy kursor wskazujący na element klikalny */
+}
+
+/* Ramki zaokrąglone dla elementów z klasą game_system_class */
+.game_system_class {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer; /* Dodajemy kursor wskazujący na element klikalny */
+}
+
+/* Ustawienia dla lewej kolumny */
+.left-column {
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.middle-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.middle-column h5 {
+  font-size: 24px; /* Możesz dostosować rozmiar czcionki dla tytułu */
+}
+
+.middle-column p {
+  font-size: 16px; /* Dostosuj rozmiar czcionki dla systemu gry i scenariusza */
+  text-align: left;
+}
+
+
+/* Dodatkowe stylizacje dla elementów w lewej kolumnie */
+.game_system_class {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #b3d9ff; /* Domyślny kolor tła - bardzo jasny niebieski */
+  transition: background-color 0.3s; /* Animacja zmiany koloru tła */
+}
+
+/* Zmiana koloru tła po najechaniu myszką */
+.game_system_class:hover {
+  background-color: #c1f0c1; /* Bardzo jasny zielony */
+}
+
+/* Centrowanie tekstu w ramce */
+.game_system_class a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Dodatkowe stylizacje (opcjonalne) */
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: #555;
+}
+.align-items-center {
+  width: 90%;
+}
+
+/* Dodatkowe stylizacje (opcjonalne) */
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: #555;
 }
