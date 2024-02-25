@@ -121,6 +121,64 @@
   height: 100%;
 }
 
+body {
+  background-color: #1a1a1a; /* Główne tło strony - ciemne */
+  color: #fff; /* Kolor tekstu na ciemnym tle */
+}
+
+.container {
+  background-color: #2c2c2c; /* Tło kontenera - ciemniejsze */
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+h2 {
+  color: #ffd700; /* Złoty kolor dla nagłówków */
+}
+
+.btn {
+  background-color: #4caf50; /* Zielony kolor dla przycisków */
+  color: #fff;
+}
+
+.bio-container {
+  background-color: #333;
+  color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.scenarios-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.scenario-box {
+  width: calc(33.33% - 20px); /* Trzy kolumny, z odstępami 20px */
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #483d8b; /* Kolor dla scenariuszy */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.scenario-box:hover {
+  background-color: #6a5acd; /* Kolor dla scenariuszy po najechaniu myszką */
+}
+
+.scenario-box a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.scenario-box a:hover {
+  color: #ffd700; /* Złoty kolor dla linków po najechaniu myszką */
+}
+
+
 /* Dodatkowe stylizacje (opcjonalne) */
 a {
   text-decoration: none;

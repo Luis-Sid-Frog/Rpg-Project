@@ -3,53 +3,44 @@
 {% load static %}
 
 {% block title %}
-  User:
-
-    {{ object.name }}
-
-
+  User: {{ object.name }}
 {% endblock title %}
+
 {% block content %}
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h2>
-
-
-          {{ object.name }}
-
-      </h2>
-    </div>
-  </div>
-  {% if object == request.user %}
-    <!-- Action buttons -->
-    <div class="row">
-      <div class="col-sm-12">
-        <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
-        <a class="btn btn-primary"
-           href="{% url 'account_email' %}"
-           role="button">E-Mail</a>
-        <p>{{ user.bio }}</p>
-
-
-        <h2>Scenarios created by {{ user.name }}</h2>
-<ul>
-  {% for scenario in user_scenarios %}
-    <li>
-      <h3><a href="{% url 'users:detail' id=user.id %}">{{ scenario.title }}</a></h3>
-      <p>Author: {{ scenario.author }}</p>
-      <p><a href="{% url 'update-scenerio' pk=scenario.id %}">Update Scenario</a></p>
-      <!-- Dodaj inne informacje o scenariuszu, które chcesz wyświetlić -->
-    </li>
-  {% endfor %}
-</ul>
-
-
-
-        <!-- Your Stuff: Custom user template urls -->
+        <h2>{{ object.name }}</h2>
       </div>
     </div>
-    <!-- End Action buttons -->
-  {% endif %}
-</div>
+    {% if object == request.user %}
+      <!-- Action buttons -->
+      <div class="row">
+        <div class="col-sm-12">
+          <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
+          <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
+          <p class="bio-container">{{ user.bio }}</p>
+
+          <h2>Scenarios created by {{ user.name }}</h2>
+          <div class="scenarios-container">
+            {% for scenario in user_scenarios %}
+              <div class="scenario-box" onclick="redirectTo('{% url 'game_scenerio' scenario.id %}')">
+                <h3><a href="{% url 'users:detail' id=user.id %}">{{ scenario.title }}</a></h3>
+                <p>Author: {{ scenario.author }}</p>
+                <p><a href="{% url 'update-scenerio' pk=scenario.id %}">Update Scenario</a></p>
+              </div>
+            {% endfor %}
+          </div>
+          <!-- Your Stuff: Custom user template urls -->
+        </div>
+      </div>
+      <!-- End Action buttons -->
+    {% endif %}
+  </div>
+
+  <script>
+    function redirectTo(url) {
+      window.location.href = url;
+    }
+  </script>
 {% endblock content %}
