@@ -1,4 +1,3 @@
-/* These styles are generated from project.scss. */
 
 .alert-debug {
   color: black;
@@ -16,6 +15,10 @@
   display: flex;
   justify-content: center;
   margin-top: 20px; /* Dostosuj margines górnego dla wyższego odstępu od nawigacji */
+}
+
+.navbar-collapse {
+  justify-content: end;
 }
 
 .search_bar form {
@@ -55,49 +58,7 @@
   width: 100%;
   margin-left: 1px;
 }
-.game_systems_list {
-  text-align: left;
-}
-.rounded-box {
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  cursor: pointer; /* Dodajemy kursor wskazujący na element klikalny */
-}
 
-/* Ramki zaokrąglone dla elementów z klasą game_system_class */
-.game_system_class {
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  cursor: pointer; /* Dodajemy kursor wskazujący na element klikalny */
-}
-
-/* Ustawienia dla lewej kolumny */
-.left-column {
-  text-align: left;
-  box-sizing: border-box;
-}
-
-.middle-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.middle-column h5 {
-  font-size: 24px; /* Możesz dostosować rozmiar czcionki dla tytułu */
-}
-
-.middle-column p {
-  font-size: 16px; /* Dostosuj rozmiar czcionki dla systemu gry i scenariusza */
-  text-align: left;
-}
-
-
-/* Dodatkowe stylizacje dla elementów w lewej kolumnie */
 .game_system_class {
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -121,16 +82,56 @@
   height: 100%;
 }
 
-body {
-  background-color: #1a1a1a; /* Główne tło strony - ciemne */
-  color: #fff; /* Kolor tekstu na ciemnym tle */
+.left-column {
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.right-column {
+  text-align: left;
+}
+
+.game_scenario {
+  border-radius: 20px; /* Poprawiłem wartość procentową na wartość pikselową, aby uzyskać zaokrąglone rogi */
+  border: 1px solid pink; /* Dodane solid do ustawienia rodzaju linii w border */
+  background-color: black;
+  color: white; /* Ustawienie koloru tekstu na biały */
+  transition: background-color 0.3s; /* Dodane przejście dla efektu hover */
+}
+.game_scenario a{
+  color: white;
+}
+
+.game_systems_list {
+  text-align: left;
+}
+
+.rounded-box,
+.scenario-box {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rounded-box:hover,
+.scenario-box:hover {
+  background-color: #6a5acd; /* Kolor po najechaniu myszką */
 }
 
 .container {
   background-color: #2c2c2c; /* Tło kontenera - ciemniejsze */
   border-radius: 15px;
-  padding: 20px;
+  padding: 1%;
   margin-top: 20px;
+  max-width: 100%;
+}
+
+body {
+  background-color: #1a1a1a; /* Główne tło strony - ciemne */
+  color: #fff; /* Kolor tekstu na ciemnym tle */
 }
 
 h2 {
@@ -155,20 +156,6 @@ h2 {
   flex-wrap: wrap;
 }
 
-.scenario-box {
-  width: calc(33.33% - 20px); /* Trzy kolumny, z odstępami 20px */
-  margin: 10px;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: #483d8b; /* Kolor dla scenariuszy */
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.scenario-box:hover {
-  background-color: #6a5acd; /* Kolor dla scenariuszy po najechaniu myszką */
-}
-
 .scenario-box a {
   text-decoration: none;
   color: #fff;
@@ -177,7 +164,6 @@ h2 {
 .scenario-box a:hover {
   color: #ffd700; /* Złoty kolor dla linków po najechaniu myszką */
 }
-
 
 /* Dodatkowe stylizacje (opcjonalne) */
 a {

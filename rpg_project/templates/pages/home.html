@@ -3,57 +3,51 @@
 {% block content %}
 
   <div class="search_bar">
-    <form method="GET" action="{%  url 'home' %}">
+    <form method="GET" action="{% url 'home' %}">
       <input type="text" name="q" placeholder="Search system...">
     </form>
   </div>
 
   <div class="container text-center">
-    <div class="row align-items-start">
+    <div class="row">
       <div class="col-3 left-column">
-        <div class="rounded-box">
-          <div class="game_systems_list">
-            <div class="game_system_class" onclick="redirectTo('{% url 'home' %}')">
-              <a href="{% url 'home' %}">All</a>
-            </div>
-            <div>
-              {% for game_system in game_systems %}
-                <div class="game_system_class" onclick="redirectTo('{% url 'home' %}?q={{ game_system.name }}')">
-                  <a href="{% url 'home' %}?q={{ game_system.name }}">{{ game_system.name }}</a>
-                </div>
-              {% endfor %}
-            </div>
+        <div class="game_systems_list">
+          <div class="game_system_class" onclick="redirectTo('{% url 'home' %}')">
+            <a href="{% url 'home' %}">All</a>
           </div>
+          {% for game_system in game_systems %}
+            <div class="game_system_class" onclick="redirectTo('{% url 'home' %}?q={{ game_system.name }}')">
+              <a href="{% url 'home' %}?q={{ game_system.name }}">{{ game_system.name }}</a>
+            </div>
+          {% endfor %}
         </div>
       </div>
       <div class="col-6 middle-column">
-        <div class="rounded-box">
-          <a href="{% url 'create-scenerio' %}" class="btn btn-primary" onclick="redirectTo('{% url 'create-scenerio' %}')">Create Your Scenario</a>
-          {% for game_scenerio in game_scenerios %}
-            <div>
-              <hr>
-              {% if game_scenerio.author == user %}
-                <a href="{% url 'update-scenerio' game_scenerio.id %}" class="btn btn-info" onclick="redirectTo('{% url 'update-scenerio' game_scenerio.id %}')">Edit</a>
-                <a href="{% url 'delete-scenerio' game_scenerio.id %}" class="btn btn-danger" onclick="redirectTo('{% url 'delete-scenerio' game_scenerio.id %}')">Delete</a>
-              {% endif %}
-              <span>${{ game_scenerio.author }}</span>
-              <a href="{% url 'game_scenerio' game_scenerio.id %}" onclick="redirectTo('{% url 'game_scenerio' game_scenerio.id %}')">
-                <h5>{{ game_scenerio.title }}</h5>
-                <p>{{ game_scenerio.game_system }}</p>
-                <p>{{ game_scenerio.notes|slice:":100" }}...</p> <!-- Wyświetl pierwsze 50 znaków -->
-              </a>
-            </div>
-          {% endfor %}
-        </div>
+        <a href="{% url 'create-scenerio' %}" class="btn btn-primary" onclick="redirectTo('{% url 'create-scenerio' %}')">Create Your Scenario</a>
+        {% for game_scenerio in game_scenerios %}
+          <div class="game_scenario">
+            <hr>
+            {% if game_scenerio.author == user %}
+              <a href="{% url 'update-scenerio' game_scenerio.id %}" class="btn btn-info" onclick="redirectTo('{% url 'update-scenerio' game_scenerio.id %}')">Edit</a>
+              <a href="{% url 'delete-scenerio' game_scenerio.id %}" class="btn btn-danger" onclick="redirectTo('{% url 'delete-scenerio' game_scenerio.id %}')">Delete</a>
+            {% endif %}
+            <span>${{ game_scenerio.author }}</span>
+            <a href="{% url 'game_scenerio' game_scenerio.id %}" onclick="redirectTo('{% url 'game_scenerio' game_scenerio.id %}')">
+              <h5>{{ game_scenerio.title }}</h5>
+              <p>{{ game_scenerio.game_system }}</p>
+              <p>{{ game_scenerio.notes|slice:":100" }}...</p> <!-- Wyświetl pierwsze 50 znaków -->
+            </a>
+          </div>
+        {% endfor %}
       </div>
       <div class="col-3 right-column">
-        <div class="rounded-box">
-          {% for comment in comments %}
+        {% for comment in comments %}
+          <div>
             <span>@{{ comment.author }}</span><br>
             <span>-{{ comment.game_scenerio }}</span>
             <h5>{{ comment.comment_body }}</h5>
-          {% endfor %}
-        </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
