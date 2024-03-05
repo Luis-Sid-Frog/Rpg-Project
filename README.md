@@ -5,6 +5,9 @@ Behold My Awesome Project!
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
+## Rpg Project - Creator
+- The Creator app is an app designed to help writers and 'game masters' of popular role-playing games such as dungeon & dragons. It allows you to create an account there, publish scenarios and exchange opinions on scenarios created by other users. It is intended to facilitate the segregation of individual elements of the scenario, such as chapters, characters, world-maps-locations. The application's mission is to encourage the creation of stories, stories and worlds. It is developmental, and the tools that allow you to create such things should be easy and accessible to use, but should provide many opportunities to organize your work.
+
 ## Settings
 
 Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
